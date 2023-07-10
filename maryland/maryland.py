@@ -3,7 +3,13 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import chromedriver_binary
 
-ZIP_ZONE = '21220'
+while True:
+    ZIP_ZONE = input('ZIP_CODE of area here: ')
+    if len(ZIP_ZONE) == 5 and all((i.isdigit() for i in ZIP_ZONE)):
+        print('ZIP_CODE is True')
+        break
+    else:
+        print('ZIP_CODE is False, try again')
 
 
 options = webdriver.ChromeOptions()
@@ -56,7 +62,7 @@ try:
             page = browser.page_source
             with open(f'data/Maryland{ZIP_ZONE}-{cnt}.html', 'w', encoding='utf-8') as f:
                 f.write(page)
-            print((f'save page # {cnt}'))
+            print(f'save page # {cnt}')
             time.sleep(5)
             continue
 except Exception as ex:
