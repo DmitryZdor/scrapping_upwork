@@ -2,8 +2,9 @@ import csv
 from bs4 import BeautifulSoup
 
 
+file_name = 'Maryland21201-1' # enter download filename
 
-with open(f"data/Maryland21220-2.html", "r", encoding="utf-8") as file:
+with open(f"data/{file_name}.html", "r", encoding="utf-8") as file:
     src = file.read()
 
 soup = BeautifulSoup(src, "lxml")
@@ -17,6 +18,6 @@ for el in soup.find_all("tr"):
 
 
 for row in csv_data:
-    with open(f"data/Maryland21220-2.csv", "a", encoding="utf-8-sig", newline="") as csv_f:
+    with open(f"data/{file_name}.csv", "a", encoding="utf-8-sig", newline="") as csv_f:
         writer = csv.writer(csv_f, delimiter=';')
         writer.writerow(row)

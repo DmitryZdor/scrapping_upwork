@@ -49,7 +49,16 @@ pip install -r requirements.txt
 ```
 python maryland.py
 ```
-по запросу вводим требуемый Zip Code например 21220  
+по запросу вводим требуемый Zip Code например 21201 
 Необходимый Zip Code List можно посмотреть на сайте https://www.ciclt.net/sn/clt/capitolimpact/gw_ziplist.aspx?zip=212
 
-5.
+5. Привыполнении скрипта в папке maryland/data/ появятся файл(файлы),  
+если страниц несколько, с префиксом(id) с расширением html.  
+например   maryland/data/Maryland21201-1.html
+
+6. Затем в скрипте main в переменную file_name вводим название файла который был скачан без расширения  
+запускаем скрипт.
+```
+python main.py
+```
+7. В папке data появится файл с тем же именем, но с расширением csv. Что и требуется.
